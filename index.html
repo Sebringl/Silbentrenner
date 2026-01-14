@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Silbentrenner für Songzeilen</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Ballermann-Tool</p>
+          <h1>Silbentrenner für Songzeilen</h1>
+          <p class="intro">
+            Tippe deinen Songtext ein, klick pro Zeile auf „+“ und erhalte die Silbentrennung
+            rechts daneben. Die Trennung erfolgt über die ChatGPT API.
+          </p>
+        </div>
+        <div class="api-card">
+          <label class="field">
+            <span>ChatGPT-API-Key</span>
+            <input id="apiKey" type="password" placeholder="sk-..." autocomplete="off" />
+          </label>
+          <label class="field">
+            <span>Modell</span>
+            <input id="model" type="text" value="gpt-4o-mini" />
+          </label>
+          <p class="note">
+            Der Key bleibt nur in deinem Browser (LocalStorage) gespeichert. Für GitHub Pages
+            solltest du keinen Key teilen, den andere mitnutzen.
+          </p>
+        </div>
+      </header>
+
+      <section class="workspace">
+        <div class="pane">
+          <h2>Songtext</h2>
+          <textarea
+            id="lyricsInput"
+            rows="14"
+            placeholder="Gib hier deinen Songtext ein – jede Zeile wird separat ausgewertet."
+          ></textarea>
+        </div>
+        <div class="pane">
+          <h2>Zeilen &amp; Silben</h2>
+          <div id="linesOutput" class="lines"></div>
+        </div>
+      </section>
+
+      <section class="tips">
+        <h3>Tipps für gleichmäßige Silben</h3>
+        <ul>
+          <li>Verwende kurze Wörter und wiederkehrende Muster für den Refrain.</li>
+          <li>Halte die Silbenanzahl pro Zeile ähnlich, damit der Groove stabil bleibt.</li>
+          <li>Nutze den „+“-Button, wenn du eine Zeile fertig hast.</li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
